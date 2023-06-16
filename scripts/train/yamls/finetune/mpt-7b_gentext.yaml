@@ -7,7 +7,7 @@ run_name: # If left blank, will be read from env var $RUN_NAME
 model:
   name: hf_causal_lm
   pretrained: true
-  pretrained_model_name_or_path: "AlekseyKorshuk/mpt-7b-8192"
+  pretrained_model_name_or_path: "AlekseyKorshuk/mpt-7b-16384"
   config_overrides:
     attn_config:
       attn_impl: triton
@@ -16,7 +16,7 @@ model:
 
 # Tokenizer
 tokenizer:
-  name: "AlekseyKorshuk/mpt-7b-8192"
+  name: "AlekseyKorshuk/mpt-7b-16384"
   kwargs:
     model_max_length: ${max_seq_len}
 
