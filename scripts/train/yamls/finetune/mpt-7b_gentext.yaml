@@ -1,4 +1,4 @@
-max_seq_len: 8192
+max_seq_len: 16384
 global_seed: 17
 
 # Run Name
@@ -70,8 +70,8 @@ optimizer:
   name: decoupled_adamw
   lr: 5.0e-6
   betas:
-  - 0.9
-  - 0.999
+    - 0.9
+    - 0.999
   eps: 1.0e-8
   weight_decay: 0
 
@@ -111,12 +111,12 @@ console_log_interval: 1ba
 callbacks:
   speed_monitor:
     window_size: 10
-  lr_monitor: {}
-  memory_monitor: {}
-  runtime_estimator: {}
+  lr_monitor: { }
+  memory_monitor: { }
+  runtime_estimator: { }
 
 loggers:
-  wandb: {}
+  wandb: { }
 
 # Checkpoint to local filesystem or remote object store
 # save_interval: 5000ba
