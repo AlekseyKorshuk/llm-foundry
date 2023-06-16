@@ -7,7 +7,7 @@ run_name: # If left blank, will be read from env var $RUN_NAME
 model:
   name: hf_causal_lm
   pretrained: true
-  pretrained_model_name_or_path: AlekseyKorshuk/mpt-7b-8192
+  pretrained_model_name_or_path: "AlekseyKorshuk/mpt-7b-8192"
   config_overrides:
     attn_config:
       attn_impl: triton
@@ -16,7 +16,7 @@ model:
 
 # Tokenizer
 tokenizer:
-  name: AlekseyKorshuk/mpt-7b-8192
+  name: "AlekseyKorshuk/mpt-7b-8192"
   kwargs:
     model_max_length: ${max_seq_len}
 
@@ -25,7 +25,7 @@ tokenizer:
 train_loader:
   name: finetuning
   dataset:
-    hf_name: AlekseyKorshuk/llm-foundry-gentextai-gambling
+    hf_name: "AlekseyKorshuk/llm-foundry-gentextai-gambling"
     split: train
     max_seq_len: ${max_seq_len}
     allow_pad_trimming: false
@@ -45,7 +45,7 @@ train_loader:
 eval_loader:
   name: finetuning
   dataset:
-    hf_name: AlekseyKorshuk/llm-foundry-gentextai-gambling
+    hf_name: "AlekseyKorshuk/llm-foundry-gentextai-gambling"
     split: validation
     max_seq_len: ${max_seq_len}
     allow_pad_trimming: false
