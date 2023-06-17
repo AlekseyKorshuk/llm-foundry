@@ -1,14 +1,15 @@
-max_seq_len: 16384
+max_seq_len: 4096
 global_seed: 17
 
 # Run Name
-run_name: # If left blank, will be read from env var $RUN_NAME
+run_name: "llm-foundry-gentextai-gambling-15k" "# If left blank, will be read from env var $RUN_NAME
 
 model:
   name: hf_causal_lm
   pretrained: true
   pretrained_model_name_or_path: "AlekseyKorshuk/mpt-7b-16384"
   config_overrides:
+    max_seq_len: 4096
     attn_config:
       attn_impl: triton
       # Set this to `true` if using `train_loader.dataset.packing_ratio` below
@@ -25,7 +26,7 @@ tokenizer:
 train_loader:
   name: finetuning
   dataset:
-    hf_name: "AlekseyKorshuk/llm-foundry-gentextai-gambling"
+    hf_name: "AlekseyKorshuk/llm-foundry-gentextai-gambling-15k"
     split: train
     max_seq_len: ${max_seq_len}
     allow_pad_trimming: false
@@ -45,7 +46,7 @@ train_loader:
 eval_loader:
   name: finetuning
   dataset:
-    hf_name: "AlekseyKorshuk/llm-foundry-gentextai-gambling"
+    hf_name: "AlekseyKorshuk/llm-foundry-gentextai-gambling-15k"
     split: validation
     max_seq_len: ${max_seq_len}
     allow_pad_trimming: false
